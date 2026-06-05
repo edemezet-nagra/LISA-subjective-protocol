@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 12%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 210 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 20%;
+    --ring: 210 100% 55%;
+
+    --radius: 0.5rem;
+
+    /* Custom DSIS colors */
+    --gray-screen: 0 0% 50%;
+    --mask-overlay: 0 100% 50%;
+    --timer-bg: 0 0% 10%;
+    --rating-track: 0 0% 30%;
+    --rating-thumb: 210 100% 55%;
+
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 210 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 20%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 210 100% 55%;
+  }
+
+  .dark {
+    --background: 0 0% 12%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 210 80% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 25%;
+    --input: 0 0% 20%;
+    --ring: 210 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Hide cursor during image display phases */
+.hide-cursor {
+  cursor: none;
+}
+
+/* Custom slider styling */
+input[type="range"].rating-slider {
+  @apply appearance-none w-full h-3 rounded-full;
+  background: hsl(var(--rating-track));
+}
+
+input[type="range"].rating-slider::-webkit-slider-thumb {
+  @apply appearance-none w-8 h-8 rounded-full cursor-pointer;
+  background: hsl(var(--rating-thumb));
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+}
+
+input[type="range"].rating-slider::-moz-range-thumb {
+  @apply w-8 h-8 rounded-full cursor-pointer border-0;
+  background: hsl(var(--rating-thumb));
+  box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+}
+
+/* Canvas drawing cursor */
+.drawing-cursor {
+  cursor: crosshair;
+}
